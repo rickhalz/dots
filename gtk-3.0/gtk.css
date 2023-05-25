@@ -1,0 +1,15 @@
+.thunar .sidebar .view {
+background: url("/home/albert/.config/gtk-3.0/images/border.png");
+background-size:120px;
+background-repeat : no-repeat;
+background-position: 50% calc(100%-40px);
+}
+
+scrolledwindow widget {
+background : url("/home/albert/.config/gtk-3.0/images/border1.png");
+background-size : 122px;
+background-repeat : no-repeat;
+background-position: calc(100%-15px) calc(100%-15px);
+}
+
+.thunar .standard-view .view * { background-image: none; }

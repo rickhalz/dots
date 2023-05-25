@@ -1,0 +1,28 @@
+set selection-clipboard clipboard
+set window-title-basename "true"
+set scroll-page-aware "true"
+set scroll-step 50
+# Color
+
+set default-bg                  "#1a1b26"
+set default-fg                  "#d5d6db"
+
+set index-bg                    "#1a1b26"
+set index-fg                    "#d5d6db"
+set index-active-bg             "#414868"
+set index-active-fg             "#d5d6db"
+
+set statusbar-fg                "#d5d6db"
+set statusbar-bg                "#414868"
+
+set completion-bg               "#1a1b26"
+set completion-fg               "#d5d6db"
+set completion-highlight-fg     "#d5d6db"
+set completion-highlight-bg     "#414868"
+
+set inputbar-bg                 "#1a1b26"
+set inputbar-fg                 "#d6d6db"
+
+set recolor-lightcolor          "#1a1b26"
+set recolor-darkcolor           "#d5d6db"
+set recolor true

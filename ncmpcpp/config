@@ -1,0 +1,27 @@
+mpd_host = "127.0.0.1"
+mpd_port = "6600"
+ncmpcpp_directory = ~/.config/ncmpcpp
+mpd_music_dir = ~/Music
+visualizer_data_source = "/tmp/mpd.fifo"
+visualizer_output_name = "my_fifo"
+visualizer_in_stereo = "no"
+visualizer_type = "spectrum"
+visualizer_look = "◆▋"
+playlist_display_mode = classic
+browser_display_mode = classic
+user_interface = classic
+volume_change_step = 5
+header_visibility = yes
+statusbar_visibility = yes
+titles_visibility = yes
+header_text_scrolling = yes
+colors_enabled = yes
+header_window_color = red
+volume_color = blue
+main_window_color = red
+color1 = white
+color2 = white
+progressbar_color = blue
+progressbar_elapsed_color = red
+
+song_list_format = "{$2❱$5❱$2❱$5❱$2❱}{$5%f}$R{$2(%l)}"
