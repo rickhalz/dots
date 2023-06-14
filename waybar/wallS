@@ -1,0 +1,21 @@
+#!/bin/bash
+
+oldImg=$(cat ~/.config/waybar/temp)
+
+list[1]=wallpaper1.jpg
+list[2]=wallpaper2.jpg
+list[3]=wallpaper3.jpg
+list[4]=wallpaper4.jpg
+
+size=${#list[@]}
+index=$((RANDOM % $size))
+img=${list[$index]}
+
+while [[ $img = $oldImg ]] ; do
+	 index=$((RANDOM % $size))
+	 img=${list[$index]}
+done
+
+echo $img >> ~/.config/waybar/temp
+
+swww img ~/.config/waybar/wallpapers/$img

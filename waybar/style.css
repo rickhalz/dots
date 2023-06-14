@@ -1,0 +1,191 @@
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 13px;
+}
+
+window#waybar {
+  color: #cfc9c2;
+  background-color: transparent;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+button {
+  box-shadow: inset 0 -3px transparent;
+  border: none;
+  border-radius: 0;
+}
+
+button:hover {
+  background: rgba(26, 27, 38, 0.9);
+}
+
+#custom-ss {
+  font-weight: bolder;
+  padding: 0 9px 1px 6px;
+  border-radius: 50%;
+  color: rgba(26, 27, 38, 0.8);
+  margin-top: 19px;
+  margin-bottom: 16px;
+  margin-right: 10px;
+  background: #000;
+  background-image: linear-gradient(
+    -45deg,
+    rgba(252, 225, 208, 1) 30%,
+    rgba(255, 173, 214, 1) 55.7%,
+    rgba(162, 186, 245, 1) 81.8%
+  );
+  background-size: 400% 400%;
+  animation: mymove 8s ease infinite;
+}
+
+#custom-wall {
+  font-weight: bolder;
+  padding: 0 9px 1px 7px;
+  border-radius: 50%;
+  color: rgba(26, 27, 38, 0.8);
+  margin-top: 19px;
+  margin-bottom: 16px;
+  margin-left: 10px;
+  background: #000;
+  background-image: linear-gradient(
+    -45deg,
+    rgba(252, 225, 208, 1) 30%,
+    rgba(255, 173, 214, 1) 55.7%,
+    rgba(162, 186, 245, 1) 81.8%
+  );
+  background-size: 400% 400%;
+  animation: mymove 12s ease infinite;
+}
+
+#workspaces,
+#mpd,
+#pulseaudio,
+#battery,
+#cpu,
+#memory,
+#network,
+#temperature,
+#backlight,
+#custom-sep {
+  background-color: rgba(26, 27, 38, 0.7);
+  font-weight: bolder;
+  margin-top: 10px;
+  margin-bottom: 7px;
+}
+
+#pulseaudio,
+#backlight,
+#cpu,
+#memory,
+#temperature,
+#network,
+#battery {
+  border-top: 3px solid #f7dab6;
+  border-bottom: 3px solid #f7dab6;
+  font-size: 12px;
+}
+
+#mpd {
+  border: 3px solid #f7dab6;
+  margin-left: 9px;
+  padding: 0 7px 0 7px;
+  font-size: 12px;
+}
+
+#workspaces {
+  border: 3px solid #f7dab6;
+  margin-left: 9px;
+}
+
+#workspaces button {
+  color: #f7768e;
+  border: 0;
+  transition: all 0.2s ease-in;
+}
+
+#workspaces button.active {
+  color: #f7dab6;
+  text-shadow: #f7dab6 1px 0 13px;
+  transition: all 0.2s ease-in;
+}
+
+#clock {
+  font-size: 12px;
+  font-weight: bolder;
+  color: rgba(26, 27, 38, 0.8);
+  border: 3px solid #fff;
+  margin-top: 10px;
+  margin-bottom: 7px;
+  padding-right: 10px;
+  padding-left: 10px;
+  background: #000;
+  background-image: linear-gradient(
+    -45deg,
+    rgba(252, 225, 208, 1) 30%,
+    rgba(255, 173, 214, 1) 55.7%,
+    rgba(162, 186, 245, 1) 81.8%
+  );
+  background-size: 400% 400%;
+  animation: mymove 10s ease infinite;
+}
+
+@keyframes mymove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#battery {
+  padding: 0 13px 0 3px;
+  border-right: 3px solid #f7dab6;
+  margin-right: 9px;
+}
+
+#custom-sep {
+  font-size: 22px;
+  color: #f7768e;
+  border-top: 3px solid #f7dab6;
+  border-bottom: 3px solid #f7dab6;
+}
+
+#cpu {
+  padding: 0 3px 0 3px;
+}
+
+#memory {
+  padding: 0 3px 0 3px;
+}
+
+#backlight {
+  padding: 0 10px 0 3px;
+}
+
+#network {
+  padding: 0 3px 0 3px;
+}
+
+#network.disconnected {
+  font-size: 11px;
+}
+
+#pulseaudio {
+  padding: 0 4px 0 7px;
+  border-left: 3px solid #f7dab6;
+}
+
+#temperature {
+  padding: 0 3px 0 3px;
+}
+
+#temperature.critical {
+  font-size: 11px;
+  padding: 0 3px 0 3px;
+  color: #f7dab6;
+}
