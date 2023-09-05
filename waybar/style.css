@@ -17,7 +17,7 @@ button {
 }
 
 button:hover {
-  background: rgba(26, 27, 38, 0.9);
+  text-shadow: #ffffff 1px 0 4px;
 }
 
 #custom-ss {
@@ -58,7 +58,6 @@ button:hover {
   animation: mymove 12s ease infinite;
 }
 
-#workspaces,
 #mpd,
 #pulseaudio,
 #battery,
@@ -81,32 +80,33 @@ button:hover {
 #temperature,
 #network,
 #battery {
-  border-top: 3px solid #f7dab6;
-  border-bottom: 3px solid #f7dab6;
+  border-top: 3px solid #ffffff;
+  border-bottom: 3px solid #ffffff;
   font-size: 12px;
 }
 
 #mpd {
-  border: 3px solid #f7dab6;
+  border: 3px solid #ffffff;
   margin-left: 9px;
   padding: 0 7px 0 7px;
   font-size: 12px;
 }
 
 #workspaces {
-  border: 3px solid #f7dab6;
+  margin-top: 10px;
+  margin-bottom: 7px;
   margin-left: 9px;
 }
 
 #workspaces button {
-  color: #f7768e;
+  color: #ffffff;
   border: 0;
   transition: all 0.2s ease-in;
 }
 
 #workspaces button.active {
-  color: #f7dab6;
-  text-shadow: #f7dab6 1px 0 13px;
+  color: #ffffff;
+  text-shadow: #fff 0px 0px 7px;
   transition: all 0.2s ease-in;
 }
 
@@ -144,15 +144,15 @@ button:hover {
 
 #battery {
   padding: 0 13px 0 3px;
-  border-right: 3px solid #f7dab6;
+  border-right: 3px solid #ffffff;
   margin-right: 9px;
 }
 
 #custom-sep {
   font-size: 22px;
-  color: #f7768e;
-  border-top: 3px solid #f7dab6;
-  border-bottom: 3px solid #f7dab6;
+  color: #ffffff;
+  border-top: 3px solid #ffffff;
+  border-bottom: 3px solid #ffffff;
 }
 
 #cpu {
@@ -177,7 +177,7 @@ button:hover {
 
 #pulseaudio {
   padding: 0 4px 0 7px;
-  border-left: 3px solid #f7dab6;
+  border-left: 3px solid #ffffff;
 }
 
 #temperature {
@@ -187,5 +187,5 @@ button:hover {
 #temperature.critical {
   font-size: 11px;
   padding: 0 3px 0 3px;
-  color: #f7dab6;
+  color: #ffffff;
 }

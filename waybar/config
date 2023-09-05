@@ -3,18 +3,18 @@
 	 "height": 59,
 	  "modules-left": [ "wlr/workspaces"],
 		"modules-center": ["custom/ss", "clock", "custom/wall"],
-		"modules-right": ["pulseaudio", "custom/sep", "cpu", "custom/sep", "memory", "custom/sep", "temperature", "custom/sep", "network", "custom/sep", "battery"],
+		"modules-right": ["pulseaudio", "custom/sep", "temperature", "custom/sep", "network", "custom/sep", "battery"],
 	 "wlr/workspaces": {
 			 "format": "{icon}",
 			 "on-click": "activate",
 			 "format-icons": {
-					"default": "",
-					"active": "󰮯"
+					  "active": "",
+						"default": "⭘"
 			 }
 	 },
 	 "custom/ss": {
 				 "format": "",
-				 "on-click": "grim",
+				 "on-click": "~/.config/waybar/SS",
 			},
 	 "custom/wall": {
 				 "format": "",
@@ -59,13 +59,6 @@
 					"on-click-backward": "tz_down",
 					"on-scroll-up": "shift_up",
 					"on-scroll-down": "shift_down" }
-	 },
-		"cpu": {
-			 "format": "{usage}% 󰍛",
-			 "tooltip": true
-	 },
-		"memory": {
-			 "format": "{}% "
 	 },
 		"temperature": {
 			 "critical-threshold": 80,
