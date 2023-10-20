@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+value=$(ibus engine)
+
+if [ "$value" == "xkb:us::eng" ]; then
+	 ibus engine Bamboo::Us
+    notify-send "Keyboard Input: VN"
+
+elif [ "$value" == "Bamboo::Us" ]; then
+	 ibus engine xkb:us::eng
+    notify-send "Keyboard Input: US"
+fi
