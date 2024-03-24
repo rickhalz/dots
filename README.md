@@ -1,6 +1,4 @@
 feetpics
-![screenshot1](https://github.com/rickhalz/dots/assets/91548246/3f9d6edf-b836-4f38-b144-4c705e2de051)
-![screenshot2](https://github.com/rickhalz/dots/assets/91548246/ffc9598d-2d1d-4f4b-af30-54962d4f564b)
-![screenshot3](https://github.com/rickhalz/dots/assets/91548246/a7ef0501-d0bf-4495-a8dc-62d8c838a3ed)
 
-why git push image so slow ?
+![20240324_20h44m01s_grim](https://github.com/rickhalz/dots/assets/91548246/bac08e1f-e411-451c-b8ab-17ad8cc12220)
+![20240324_20h44m41s_grim](https://github.com/rickhalz/dots/assets/91548246/f201ac18-a1ce-42b7-a3db-cc32828550b6)
