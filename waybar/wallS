@@ -2,10 +2,14 @@
 
 oldImg=$(cat ~/.config/waybar/temp)
 
-list[1]=wallpaper1.jpg
-list[2]=wallpaper2.jpg
-list[3]=wallpaper3.jpg
-list[4]=wallpaper4.jpg
+list[0]=wallpaper1.jpg
+list[1]=wallpaper2.jpg
+list[2]=wallpaper3.jpg
+list[3]=wallpaper4.jpg
+list[4]=wallpaper5.jpg
+list[5]=wallpaper.png
+list[6]=wallpaper6.jpg
+list[7]=wallpaper7.jpg
 
 size=${#list[@]}
 index=$((RANDOM % $size))
@@ -16,6 +20,6 @@ while [[ $img = $oldImg ]] ; do
 	 img=${list[$index]}
 done
 
-echo $img >> ~/.config/waybar/temp
+echo $img > ~/.config/waybar/temp
 
-swww img ~/.config/waybar/wallpapers/$img
+swww img ~/.config/waybar/wallpapers/$img --transition-type grow --transition-pos 1460,1375 --transition-duration 3

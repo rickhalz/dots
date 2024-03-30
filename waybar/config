@@ -1,16 +1,17 @@
 
 {
 	 "height": 59,
-	  "modules-left": [ "wlr/workspaces"],
+	  "modules-left": [ "hyprland/workspaces"],
 		"modules-center": ["custom/ss", "clock", "custom/wall"],
 		"modules-right": ["pulseaudio", "custom/sep", "temperature", "custom/sep", "network", "custom/sep", "battery"],
-	 "wlr/workspaces": {
+	 "hyprland/workspaces": {
 			 "format": "{icon}",
 			 "on-click": "activate",
 			 "format-icons": {
 					  "active": "",
 						"default": "⭘"
-			 }
+			 },
+       "sort-by-number": true,
 	 },
 	 "custom/ss": {
 				 "format": "",
