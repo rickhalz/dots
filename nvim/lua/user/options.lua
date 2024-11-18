@@ -10,12 +10,12 @@ opt.signcolumn = "auto:2"
 opt.cursorline = true
 opt.mouse = "a"
 opt.scrolloff = 8
-opt.tabstop = 2
-opt.shiftwidth = 3
-opt.autoindent = true
-opt.smartindent = true
 opt.breakindent = true
-opt.smarttab = true
+opt.termguicolors = true
+opt.smartindent = true
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.autoindent = true
 
 keymap.set("n", "<C-h>", "<C-w>h", opts)
 keymap.set("n", "<C-j>", "<C-w>j", opts)

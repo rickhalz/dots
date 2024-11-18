@@ -2,6 +2,11 @@ local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
 
 require("telescope").setup({
+	extensions = {
+		live_grep_args = {
+			auto_quoting = true,
+		},
+	},
 	defaults = {
 		prompt_prefix = " ❯ ",
 		initial_mode = "insert",
@@ -23,7 +28,7 @@ require("telescope").setup({
 })
 
 vim.keymap.set("n", ";f", builtin.find_files, {})
-
+vim.keymap.set("n", "<leader>tu", ":Telescope undo<CR>")
 vim.keymap.set("n", ";g", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 
 require("telescope").load_extension("live_grep_args")

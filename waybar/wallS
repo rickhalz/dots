@@ -10,6 +10,7 @@ list[4]=wallpaper5.jpg
 list[5]=wallpaper.png
 list[6]=wallpaper6.jpg
 list[7]=wallpaper7.jpg
+list[8]=wallpaper8.jpg
 
 size=${#list[@]}
 index=$((RANDOM % $size))
@@ -22,4 +23,4 @@ done
 
 echo $img > ~/.config/waybar/temp
 
-swww img ~/.config/waybar/wallpapers/$img --transition-type grow --transition-pos 1460,1375 --transition-duration 3
+swww img ~/.config/waybar/wallpapers/$img --transition-type grow --transition-pos 1410,1375 --transition-duration 3

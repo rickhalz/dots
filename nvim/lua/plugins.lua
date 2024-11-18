@@ -1,200 +1,231 @@
-local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-	fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-	vim.cmd([[packadd packer.nvim]])
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
+vim.opt.rtp:prepend(lazypath)
 
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])
+require("lazy").setup({
+	-- Mandatory --
+	{ "wbthomason/packer.nvim" },
+	{ "nvim-lua/plenary.nvim" },
 
-return require("packer").startup({
-	function(use)
-		-- Mandatory --
-		use("wbthomason/packer.nvim")
-		use("nvim-lua/plenary.nvim")
+	-- Theme
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	lazy = false, -- make sure we load this during startup if it is your main colorscheme
+	-- 	priority = 1000, -- make sure to load this before all the other start plugins
+	-- 	config = function()
+	-- 		-- load the colorscheme here
+	-- 		vim.cmd([[colorscheme tokyonight-night]])
+	-- 	end,
+	-- },
+	{
+		"rose-pine/neovim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd([[colorscheme rose-pine-moon]])
+		end,
+	},
 
-		-- Theme
-		use({ "folke/tokyonight.nvim" })
-		-- Colorizer
-		use({
-			"norcalli/nvim-colorizer.lua",
-			config = function()
-				require("colorizer").setup()
-			end,
-		})
+	-- Colorizer
+	{
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup()
+		end,
+	},
 
-		-- Icons
-		use({ "kyazdani42/nvim-web-devicons" })
+	-- Greeter
+	{
+		"glepnir/dashboard-nvim",
+		event = "VimEnter",
+		config = function()
+			require("plugins/dashboard")
+		end,
+	},
 
-		-- Greeter
-		use({
-			"glepnir/dashboard-nvim",
-			config = function()
-				require("plugins/dashboard")
-			end,
-		})
+	-- Statusline
+	{
+		"nvim-lualine/lualine.nvim",
+		event = "BufEnter",
+		config = function()
+			require("plugins/lualine")
+		end,
+	},
 
-		-- Statusline
-		use({
-			"nvim-lualine/lualine.nvim",
-			event = "BufEnter",
-			config = function()
-				require("plugins/lualine")
-			end,
-		})
+	-- Bufferline
+	{
+		"akinsho/bufferline.nvim",
+		config = function()
+			require("plugins/bufferline")
+		end,
+	},
 
-		-- Bufferline
-		use({
-			"akinsho/bufferline.nvim",
-			config = function()
-				require("plugins/bufferline")
-			end,
-		})
+	-- Surround
+	{
+		"kylechui/nvim-surround",
+		version = "*",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup()
+		end,
+	},
 
-		-- Surround
-		use({
-			"kylechui/nvim-surround",
-			tag = "*",
-			config = function()
-				require("nvim-surround").setup({})
-			end,
-		})
+	-- Terminal
+	{ "akinsho/toggleterm.nvim", version = "*", config = true },
 
-		-- Terminal
-		use({
-			"s1n7ax/nvim-terminal",
-			config = function()
-				vim.o.hidden = true
-				require("nvim-terminal").setup()
-			end,
-		})
-
-		-- Syntax highlighting
-		use({
-			"kyazdani42/nvim-tree.lua",
-			config = function()
-				require("plugins/nvimtree")
-			end,
-		})
-		use({
-			"nvim-treesitter/nvim-treesitter",
-			run = ":TSUpdate",
-			config = function()
-				require("plugins/treesitter")
-			end,
-		})
-		use({
+	-- Syntax highlighting
+	{
+		"kyazdani42/nvim-tree.lua",
+		config = function()
+			require("plugins/nvimtree")
+		end,
+	},
+	{
+		"windwp/nvim-ts-autotag",
+		config = function()
+			require("nvim-ts-autotag").setup()
+		end,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		version = false,
+		build = ":TSUpdate",
+		event = { "VeryLazy" },
+		dependencies = {
 			"nvim-treesitter/playground",
-			after = "nvim-treesitter",
-		})
-		use({
-			"windwp/nvim-ts-autotag",
-			after = "nvim-treesitter",
-		})
-		use({
-			"p00f/nvim-ts-rainbow",
-			after = "nvim-treesitter",
-		})
-		use({
-			"windwp/nvim-autopairs",
-			after = "nvim-cmp",
-			config = function()
-				require("plugins/autopairs")
-			end,
-		})
-		use({
-			"neovim/nvim-lspconfig",
-			config = function()
-				require("plugins/lsp")
-			end,
-		})
-		use({
-			"williamboman/mason.nvim",
-			config = function()
-				require("plugins/mason")
-			end,
-		})
-		use({ "hrsh7th/cmp-nvim-lsp" })
-		use({ "hrsh7th/cmp-buffer" })
-		use({ "hrsh7th/nvim-cmp" })
-		use({ "hrsh7th/cmp-path" })
-		use({ "hrsh7th/cmp-vsnip" })
-		use({ "hrsh7th/vim-vsnip" })
-		use({ "onsails/lspkind-nvim" })
-		use({
-			"jose-elias-alvarez/null-ls.nvim",
-			event = "BufRead",
-			config = function()
-				require("plugins/null-ls")
-			end,
-		})
-		use({
-			"lukas-reineke/indent-blankline.nvim",
-			event = "BufRead",
-			config = function()
-				require("plugins/indent")
-			end,
-		})
-		use({
-			"numToStr/Comment.nvim",
-			event = "BufRead",
-			config = function()
-				require("Comment").setup()
-			end,
-		})
-		use({
-			"lewis6991/gitsigns.nvim",
-			event = "BufRead",
-			config = function()
-				require("plugins/gitsigns")
-			end,
-		})
-		use({
-			"rhysd/git-messenger.vim",
-			event = "BufRead",
-			config = function()
-				require("plugins/messenger")
-			end,
-		})
-		-- use({
-		-- 	"glepnir/lspsaga.nvim",
-		-- 	config = function()
-		-- 		require("plugins/lspsaga")
-		-- 	end,
-		-- })
-		use({
-			"nvim-telescope/telescope.nvim",
-			requires = {
-				{ "nvim-telescope/telescope-live-grep-args.nvim" },
-				{ "nvim-telescope/telescope-symbols.nvim" },
-			},
-			config = function()
-				require("plugins/telescope")
-			end,
-		})
-		use({
-			"nvim-zh/colorful-winsep.nvim",
-			config = function()
-				require("colorful-winsep").setup()
-			end,
-		})
-		use({
-			"j-hui/fidget.nvim",
-			config = function()
-				require("fidget").setup({})
-			end,
-		})
-	end,
-	config = {
-		display = {
-			open_fn = function()
-				return require("packer.util").float({ border = "single" })
-			end,
 		},
+		config = function()
+			require("plugins/treesitter")
+		end,
+	},
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = function()
+			require("plugins/autopairs")
+		end,
+	},
+	{
+		"neovim/nvim-lspconfig",
+		config = function()
+			require("plugins/lsp")
+		end,
+	},
+	{
+		"williamboman/mason.nvim",
+		config = function()
+			require("plugins/mason")
+		end,
+	},
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/nvim-cmp",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-vsnip",
+	"onsails/lspkind-nvim",
+	"L3MON4D3/LuaSnip",
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		config = function()
+			require("plugins/indent")
+		end,
+	},
+	{
+		"numToStr/Comment.nvim",
+		event = "BufRead",
+		config = function()
+			require("Comment").setup()
+		end,
+	},
+	{
+		"lewis6991/gitsigns.nvim",
+		event = "BufRead",
+		config = function()
+			require("plugins/gitsigns")
+		end,
+	},
+	{
+		"rhysd/git-messenger.vim",
+		event = "BufRead",
+		config = function()
+			require("plugins/messenger")
+		end,
+	},
+	-- use({
+	-- 	"glepnir/lspsaga.nvim",
+	-- 	config = function()
+	-- 		require("plugins/lspsaga")
+	-- 	end,
+	-- })
+	{
+		"gorbit99/codewindow.nvim",
+		config = function()
+			local codewindow = require("codewindow")
+			codewindow.setup({
+				auto_enable = false,
+				width_multiplier = 3,
+				show_cursor = false,
+				window_border = "none",
+				use_treesitter = true,
+			})
+			codewindow.apply_default_keybinds()
+		end,
+	},
+	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = {
+			{ "nvim-telescope/telescope-live-grep-args.nvim" },
+			{ "nvim-telescope/telescope-symbols.nvim" },
+		},
+		config = function()
+			require("plugins/telescope")
+		end,
+	},
+	{
+		"nvim-zh/colorful-winsep.nvim",
+		config = function()
+			require("colorful-winsep").setup()
+		end,
+	},
+	{
+		"j-hui/fidget.nvim",
+		tag = "legacy",
+		event = "LspAttach",
+		config = function()
+			require("fidget").setup({})
+		end,
+	},
+	{
+		"folke/trouble.nvim",
+		dependencies = {
+			{ "nvim-tree/nvim-web-devicons" },
+		},
+		config = function()
+			require("trouble").setup()
+		end,
+	},
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+		event = "BufRead",
+		config = function()
+			require("plugins/null-ls")
+		end,
+	},
+	{
+		"vidocqh/auto-indent.nvim",
+		indentexpr = function(lnum)
+			return require("nvim-treesitter.indent").get_indent(lnum)
+		end,
+		opts = {},
 	},
 })

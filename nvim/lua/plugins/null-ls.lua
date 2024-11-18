@@ -28,7 +28,9 @@ null_ls.setup({
 		fmt.djlint,
 		-- Diagnostics --
 		dgn.flake8,
-		dgn.eslint_d,
+		dgn.eslint.with({
+			method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+		}),
 
 		dgn.flake8.with({
 			method = null_ls.methods.DIAGNOSTICS_ON_SAVE,

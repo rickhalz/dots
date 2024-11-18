@@ -4,14 +4,17 @@ db.setup({
 	theme = "hyper",
 	config = {
 		header = {
+			"██╗  ██╗███╗   ██╗██╗   ██╗ ██╗ ██╗",
+			"██║ ██╔╝████╗  ██║██║   ██║███║███║",
+			"█████╔╝ ██╔██╗ ██║██║   ██║╚██║╚██║",
+			"██╔═██╗ ██║╚██╗██║██║   ██║ ██║ ██║",
+			"██║  ██╗██║ ╚████║╚██████╔╝ ██║ ██║",
+			"╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝  ╚═╝ ╚═╝",
 			"",
-			"███████╗██████╗ ██╗██████╗  █████╗ ██╗   ██╗",
-			"██╔════╝██╔══██╗██║██╔══██╗██╔══██╗╚██╗ ██╔╝",
-			"█████╗  ██████╔╝██║██║  ██║███████║ ╚████╔╝ ",
-			"██╔══╝  ██╔══██╗██║██║  ██║██╔══██║  ╚██╔╝  ",
-			"██║     ██║  ██║██║██████╔╝██║  ██║   ██║   ",
-			"╚═╝     ╚═╝  ╚═╝╚═╝╚═════╝ ╚═╝  ╚═╝   ╚═╝   ",
-			"",
+		},
+		weak_header = {
+			enable = true,
+			concat = "happy hacking!",
 		},
 		shortcut = {
 			{ desc = "󰮯 ", group = "@property", action = "Lazy update" },
@@ -31,9 +34,17 @@ db.setup({
 				action = "Telescope dotfiles",
 			},
 		},
+		project = {
+			enable = false,
+			limit = 5,
+			icon = "Recent Projects",
+			label = "",
+			action = "Telescope find_files cwd=",
+		},
+		mru = { limit = 5, icon = "Recent Files:", label = "" },
 		footer = {
 			"",
-			"飼飼飼I like trains 飼飼飼",
+			"- you must suffer -",
 			"",
 		},
 	},

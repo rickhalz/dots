@@ -23,41 +23,29 @@ button:hover {
 }
 
 #custom-ss {
-  font-weight: bolder;
-  padding: 0 9px 1px 6px;
+  color: rgb(26, 27, 38);
+  font-size: 15px;
   border-radius: 50%;
-  color: rgba(26, 27, 38, 0.8);
+  padding: 0 9px 1px 6px;
   margin-top: 19px;
   margin-bottom: 16px;
   margin-right: 10px;
-  background: #000;
-  background-image: linear-gradient(
-    -45deg,
-    rgba(252, 225, 208, 1) 30%,
-    rgba(255, 173, 214, 1) 55.7%,
-    rgba(162, 186, 245, 1) 81.8%
-  );
-  background-size: 400% 400%;
-  animation: mymove 8s ease infinite;
+  text-shadow:
+    0 0 0.2em #fff,
+    0 0 0.1em #fff;
 }
 
 #custom-wall {
-  font-weight: bolder;
-  padding: 0 9px 1px 7px;
+  font-size: 15px;
+  color: rgb(26, 27, 38);
+  padding: 0 9px 1px 6px;
   border-radius: 50%;
-  color: rgba(26, 27, 38, 0.8);
   margin-top: 19px;
   margin-bottom: 16px;
   margin-left: 10px;
-  background: #000;
-  background-image: linear-gradient(
-    -45deg,
-    rgba(252, 225, 208, 1) 30%,
-    rgba(255, 173, 214, 1) 55.7%,
-    rgba(162, 186, 245, 1) 81.8%
-  );
-  background-size: 400% 400%;
-  animation: mymove 12s ease infinite;
+  text-shadow:
+    0 0 0.2em #fff,
+    0 0 0.1em #fff;
 }
 
 #mpd,
@@ -113,35 +101,16 @@ button:hover {
 }
 
 #clock {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: bolder;
-  color: rgba(26, 27, 38, 0.8);
-  border: 3px solid #fff;
+  color: rgba(26, 27, 38, 0.9);
   margin-top: 10px;
   margin-bottom: 7px;
   padding-right: 10px;
   padding-left: 10px;
-  background: #000;
-  background-image: linear-gradient(
-    -45deg,
-    rgba(252, 225, 208, 1) 30%,
-    rgba(255, 173, 214, 1) 55.7%,
-    rgba(162, 186, 245, 1) 81.8%
-  );
-  background-size: 400% 400%;
-  animation: mymove 10s ease infinite;
-}
-
-@keyframes mymove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  text-shadow:
+    0 0 0.5em #fff,
+    0 0 0.2em #fff;
 }
 
 #battery {
@@ -178,7 +147,7 @@ button:hover {
 }
 
 #pulseaudio {
-  padding: 0 4px 0 7px;
+  padding: 0 8px 0 7px;
   border-left: 3px solid #ffffff;
 }
 

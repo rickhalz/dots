@@ -1,5 +1,6 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require("lspconfig")
+local configs = require("lspconfig.configs")
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
@@ -57,3 +58,20 @@ for _, server in ipairs(servers) do
 		capabilities = capabilities,
 	})
 end
+
+if not lspconfig.vhdl_ls then
+	configs.vhdl_ls = {
+		default_config = {
+			cmd = { "vhdl_ls" }, -- Replace this with the actual path
+			filetypes = { "vhdl" },
+			root_dir = require("lspconfig").util.root_pattern(".git", "."),
+			single_file_support = true,
+			settings = {},
+		},
+	}
+end
+
+lspconfig.vhdl_ls.setup({
+	flags = flags,
+	capabilities = capabilities,
+})

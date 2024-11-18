@@ -42,7 +42,7 @@ require("lualine").setup({
 		component_separators = "",
 		section_separators = "",
 		theme = "palenight",
-		disabled_filetypes = {},
+		disabled_filetypes = { "dashboard" },
 	},
 	sections = {
 		lualine_a = { "mode" },
